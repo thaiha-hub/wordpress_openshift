@@ -6,8 +6,10 @@ Vi hjälper Firman AB att bygga och deploya WordPress i ett OpenShift-kluster. M
 definierar pvc för wordpress och mysql-databas  
 ```bash
 oc apply -f 01_storage.yaml  
+```  
 -- 02_mysql.yaml  
 definierar deployment och service för databasen  
 ```bash
-oc apply -f 02_mysql.yaml
+oc apply -f 02_mysql.yaml  
+```
 
