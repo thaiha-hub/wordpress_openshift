@@ -6,8 +6,8 @@ metadata:
     app: wordpress
 spec:
   ports:
-    - port: 8080        # <--- ÄNDRAT till 8080
-      targetPort: 8080  # <--- ÄNDRAT till 8080
+    - port: 8080        
+      targetPort: 8080  
   selector:
     app: wordpress
     tier: frontend
@@ -31,28 +31,28 @@ spec:
         tier: frontend
     spec:
       containers:
-      - image: bitnami/wordpress:latest  # <--- change to bitnami image
+      - image: bitnami/wordpress:latest  
         name: wordpress
         ports:
-        - containerPort: 8080            # <--- ÄNDRAT till 8080
+        - containerPort: 8080            
           name: wordpress
         resources:
           requests:
             memory: "128Mi"
             cpu: "50m"
           limits:
-            memory: "512Mi"              # Ökade lite för säkerhets skull
+            memory: "512Mi"              
             cpu: "500m"
         env:
-        - name: WORDPRESS_DATABASE_HOST    # <--- OBS: Nytt namn på variabeln
+        - name: WORDPRESS_DATABASE_HOST    
           value: "wordpress-mysql"
-        - name: WORDPRESS_DATABASE_PORT_NUMBER # <--- Vi måste ange porten
+        - name: WORDPRESS_DATABASE_PORT_NUMBER 
           value: "3306"
-        - name: WORDPRESS_DATABASE_USER    # <--- OBS: Nytt namn
+        - name: WORDPRESS_DATABASE_USER    
           value: "wp_user"
-        - name: WORDPRESS_DATABASE_PASSWORD # <--- OBS: Nytt namn
+        - name: WORDPRESS_DATABASE_PASSWORD 
           value: "wp_pass"
-        - name: WORDPRESS_DATABASE_NAME    # <--- OBS: Nytt namn
+        - name: WORDPRESS_DATABASE_NAME    
           value: "wordpress"
         - name: ALLOW_EMPTY_PASSWORD
           value: "yes"
